@@ -6,8 +6,6 @@
 #
 # Nota: Projeto não tem filiação ao Square Cloud diretamente ou indiretamente.
 
-CONFIG_FILE="config.sh"
-
 exibir_menu() {
     cubo="
   ______                                       _______  _                     _ 
@@ -75,7 +73,7 @@ executar_opcao() {
             json=$(curl -X GET "https://api.squarecloud.app/v2/apps/$ID/backup" \
                 -H "Authorization: $AUTHORIZATION" \
                 | jq)
-            downloadURL=$(echo $json | jq -r '.response.downloadURL')
+            downloadURL=$(echo "$json" | jq -r '.response.downloadURL')
             if [[ $downloadURL == "null" ]]; then
                 echo "Erro."
             else
@@ -102,10 +100,13 @@ executar_opcao() {
     esac
 }
 
+# Configuração do arquivo
+CONFIG_FILE="config.sh"
+
 # Carrega os dados gravados
 carrega
 
-# Dados gravados à verificar
+# Dados gravados a verificar
 if [ -z "$ID" ] || [ -z "$AUTHORIZATION" ]; then
     echo "As credenciais de ambiente ID e AUTHORIZATION não estão definidas."
     ler
@@ -114,6 +115,6 @@ fi
 
 while true; do
     exibir_menu
-    ler
+    ler_escolha
     executar_opcao
 done
