@@ -6,7 +6,7 @@
 
 ### [Info]
 - Compatibilidade N plataformas.
-- Versão 1.0.
+- Versão 1.1. | Data:28/06/2023.
 - Acesso ao log pode está quebrado.
 - Um arquivo é criado (config.sh).
 
