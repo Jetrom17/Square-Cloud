@@ -1,18 +1,20 @@
 # Square-Cloud
 
-> A sua Nuvem Quadrada nos nossos corações!
+> Your Square Cloud in our hearts!
 
 ![square_cloud](https://github.com/Jetrom17/Square-Cloud/assets/72875404/01944773-9516-4adc-b562-f09d2cc67577)
 
-### [Info]
-- Compatibilidade N plataformas.
-- Versão 1.1. | Data:28/06/2023.
-- Acesso ao log pode está quebrado.
-- Um arquivo é criado (config.sh).
+#
+
+### [Log](https://raw.githubusercontent.com/Jetrom17/Square-Cloud/main/history.txt)
+
+```bash
+curl -k https://raw.githubusercontent.com/Jetrom17/Square-Cloud/main/history.txt
+```
 
 #
 
-Atualmente você pode monitorar apenas uma aplicação. Sua contribuição no código é bem vinda! Desde que não perca seu objetivo a qual foi destinado. Futuras atualizações irei adicionando aos poucos com API completa de _Square Coud_. O arquivo é executável. Logo `chmod +x bot.sh` e execute `./bot.sh`.
+Currently, you can only monitor one application. Your contribution to the code is welcome! As long as it doesn't deviate from its intended purpose. I will gradually add future updates with a complete _Square Cloud_ API. The file is executable. Simply run `chmod +x bot.sh` and execute `./bot.sh`.
 
 #
 
@@ -28,4 +30,9 @@ Atualmente você pode monitorar apenas uma aplicação. Sua contribuição no c�
 ================================================================================
 ```
 
-**Nota:** Tenha instalado o `jq` e `lolcat` no seu terminal com base em Linux/Unix.
+**Note**: Make sure you have jq and lolcat installed in your Linux/Unix-based terminal.
+
+```
+apt install jq -y
+apt install lolcat -y
+```
