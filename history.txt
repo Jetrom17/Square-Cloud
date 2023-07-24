@@ -1,0 +1,12 @@
+### [Info]
+- Version 1.2 | Date: 24/07/2023.
+- Access to logs is now functional.
+- Parameter changed from "ID" to "APIKey".
+- Language: EN, PT, ES.
+- File: bEN.sh, bPT.sh, bES.sh
+
+### [Info]
+- Compatibility with N platforms.
+- Version 1.1 | Date: 28/06/2023.
+- Access to logs may be broken.
+- A file is created (config.sh).
