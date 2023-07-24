@@ -29,11 +29,11 @@ ler_escolha() {
 }
 
 ler() {
-    read -p "Digite o valor do ID: " ID
+    read -p "Digite o valor do APIKey: " APIKey
     read -p "Digite o valor do AUTHORIZATION: " AUTHORIZATION
 
     # Salva no arquivo CONFIG.SH
-    echo "export ID=\"$ID\"" >> "$CONFIG_FILE"
+    echo "export APIKey=\"$APIKey\"" >> "$CONFIG_FILE"
     echo "export AUTHORIZATION=\"$AUTHORIZATION\"" >> "$CONFIG_FILE"
 }
 
@@ -56,21 +56,21 @@ executar_opcao() {
     case $choice in
         1)
             echo "Verificando status da aplicação..." | lolcat
-            curl -X GET "https://api.squarecloud.app/v2/apps/$ID/status" \
+            curl -k GET "https://api.squarecloud.app/v2/apps/$APIKey/status" \
                 -H "Authorization: $AUTHORIZATION" \
                 | jq
             sleep 3
             ;;
         2)
             echo "Verificando logs da aplicação..." | lolcat
-            curl -X GET "https://api.squarecloud.app/v2/apps/$ID/logs" \
+            curl -k GET "https://api.squarecloud.app/v2/apps/$APIKey/logs" \
                 -H "Authorization: $AUTHORIZATION" \
                 | jq
             sleep 5
             ;;
         3)
             echo "Acessando backup da aplicação..." | lolcat
-            json=$(curl -X GET "https://api.squarecloud.app/v2/apps/$ID/backup" \
+            json=$(curl -k GET "https://api.squarecloud.app/v2/apps/$APIKey/backup" \
                 -H "Authorization: $AUTHORIZATION" \
                 | jq)
             downloadURL=$(echo "$json" | jq -r '.response.downloadURL')
@@ -107,8 +107,8 @@ CONFIG_FILE="config.sh"
 carrega
 
 # Dados gravados a verificar
-if [ -z "$ID" ] || [ -z "$AUTHORIZATION" ]; then
-    echo "As credenciais de ambiente ID e AUTHORIZATION não estão definidas."
+if [ -z "$APIKey" ] || [ -z "$AUTHORIZATION" ]; then
+    echo "As credenciais de ambiente APIKey e AUTHORIZATION não estão definidas."
     ler
     adicionar_outra_aplicacao
 fi
